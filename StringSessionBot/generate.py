@@ -22,7 +22,7 @@ from telethon.errors import (
 )
 
 
-@Client.on_callback_query(filter.regex("generate"))
+@Client.on_callback_query(filters.private & ~filters.edited("generate"))
 async def main(_, query: CallbackQuery):
     await bot.edit_message(
         """📟اذا كنـت تـريد تنـصيـب
