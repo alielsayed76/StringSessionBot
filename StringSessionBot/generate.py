@@ -21,8 +21,10 @@ from telethon.errors import (
     PasswordHashInvalidError,
 )
 
+def filter(cmd: str):
+    return filters.private & filters.incoming & filters.command(cmd)
 
-@Client.on_callback_query(filters.private & ~filters.edited("generate"))
+@Client.on_callback_query(filter("generate"))
 async def main(_, query: CallbackQuery):
     await bot.edit_message(
         """📟اذا كنـت تـريد تنـصيـب
