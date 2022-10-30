@@ -22,7 +22,7 @@ async def start(bot: Client, msg: Message):
 # Help Message
 @Client.on_callback_query(filter("help"))
 async def _help(_, query: CallbackQuery):
-    await bot.edit_message(
+    await bot.send_message(
         msg.chat.id, Data.HELP, reply_markup=InlineKeyboardMarkup(Data.home_buttons)
     )
 
@@ -30,7 +30,7 @@ async def _help(_, query: CallbackQuery):
 # About Message
 @Client.on_callback_query(filter("about"))
 async def about(_, query: CallbackQuery):
-    await bot.edit_message(
+    await bot.send_message(
         msg.chat.id,
         Data.ABOUT,
         disable_web_page_preview=True,
@@ -41,7 +41,7 @@ async def about(_, query: CallbackQuery):
 # Repo Message
 @Client.on_callback_query(filter("repo"))
 async def repo(_, query: CallbackQuery):
-    await bot.edit_message(
+    await bot.send_message(
         msg.chat.id,
         Data.REPO,
         disable_web_page_preview=True,
